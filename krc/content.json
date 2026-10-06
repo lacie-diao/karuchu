@@ -1,0 +1,246 @@
+{
+  "site": {
+    "title": "日本文化クラブ | Japanese Culture Club",
+    "brand": "日本文化クラブ"
+  },
+  "nav": [
+    {
+      "href": "#about",
+      "label": "GIỚI THIỆU",
+      "sub": "私たちについて"
+    },
+    {
+      "href": "#team",
+      "label": "CORE TEAM",
+      "sub": "コアチーム"
+    },
+    {
+      "href": "#events",
+      "label": "HOẠT ĐỘNG",
+      "sub": "イベント"
+    },
+    {
+      "href": "#video",
+      "label": "Video",
+      "sub": "動画"
+    },
+    {
+      "href": "#join",
+      "label": "THAM GIA",
+      "sub": "入部案内"
+    }
+  ],
+  "hero": {
+    "title": [
+      "日本を、",
+      "もっと身近に。"
+    ],
+    "sub": "Japanese Culture Club",
+    "badge": "2023年4月30日から！",
+    "cta": {
+      "label": "Join the Club",
+      "href": "#join"
+    }
+  },
+  "message": [
+    "1日は、いろんな発見の連続だ。",
+    "茶の湯の静けさも、筆の音も、",
+    "祭りのにぎわいも、みんなで味わえるなら。",
+    "知らなかった日本に、出会えますように。",
+    "ここが、そのきっかけの場所になりますように。",
+    "あなたの1日は、いい発見だ。"
+  ],
+  "events": {
+    "heading": "SPECIAL EVENTS",
+    "items": [
+      {
+        "title": "Club Fair 2026",
+        "jp": "花見",
+        "photo": "https://cdn.laciediao-pdp.io.vn/808374285_930043676846581_3301574059598447450_n.webp",
+        "text": "desc",
+        "c1": "#ff9db8",
+        "c2": "#ffe3ea"
+      },
+      {
+        "title": "3rd Anniversary (2026)",
+        "jp": "夏祭り",
+        "photo": "https://cdn.laciediao-pdp.io.vn/_MG_3143.webp",
+        "text": "desc",
+        "c1": "#ff8a3d",
+        "c2": "#ffd166"
+      },
+      {
+        "title": "Bonding định kỳ",
+        "jp": "月見",
+        "photo": "https://cdn.laciediao-pdp.io.vn/663223660_901334222937777_3407555354112630042_n.webp",
+        "text": "desc",
+        "c1": "#2b3a9f",
+        "c2": "#8a9bff"
+      },
+      {
+        "title": "Đêm hội Nhật ngữ (2025)",
+        "jp": "文化祭",
+        "text": "desc",
+        "photo": "https://cdn.laciediao-pdp.io.vn/karuchu.jpg",
+        "c1": "#0a8fd6",
+        "c2": "#c46bd8"
+      }
+    ],
+    "button": "View more"
+  },
+  "video": {
+    "heading": "VIDEO",
+    "title": "「夏祭り2026」ハイライト",
+    "caption": "Summer Matsuri 2026 highlights",
+    "url": "#",
+    "button": "View more"
+  },
+  "join": {
+    "heading": "JOIN",
+    "status": "Applications open next term…",
+    "banner": {
+      "jp": "見学、大歓迎。",
+      "text": "Drop by any session and try an activity for free.",
+      "button": "Contact us",
+      "href": "mailto:club@example.com"
+    }
+  },
+  "social": {
+    "heading": "公式SNSアカウント",
+    "links": [
+      {
+        "label": "X",
+        "href": "#"
+      },
+      {
+        "label": "IG",
+        "href": "#"
+      },
+      {
+        "label": "FB",
+        "href": "#"
+      },
+      {
+        "label": "LINE",
+        "href": "#"
+      }
+    ]
+  },
+  "footer": {
+    "links": [
+      {
+        "label": "Privacy",
+        "href": "#"
+      },
+      {
+        "label": "Terms",
+        "href": "#"
+      },
+      {
+        "label": "Sitemap",
+        "href": "#"
+      }
+    ],
+    "copy": "© Japanese Culture Club"
+  },
+  "team": {
+    "heading": "CORE TEAM",
+    "groups": [
+      {
+        "label": "BAN ĐIỀU HÀNH",
+        "jp": "代表",
+        "c1": "#1a2a80",
+        "c2": "#4f6bd6",
+        "members": [
+          {
+            "name": "Triệu Minh Bảo Linh",
+            "rank": "Chủ tịch",
+            "photo": "https://api.dicebear.com/9.x/notionists/svg?seed=Member01&backgroundColor=4f6bd6"
+          },
+          {
+            "name": "Hoàng Gia Bảo",
+            "rank": "Phó Chủ tịch",
+            "photo": "https://api.dicebear.com/9.x/notionists/svg?seed=Member02&backgroundColor=4f6bd6"
+          }
+        ]
+      },
+      {
+        "label": "DỊCH THUẬT",
+        "jp": "翻訳",
+        "c1": "#0a8fd6",
+        "c2": "#8fd8ff",
+        "members": [
+          {
+            "name": "Ngô Phú Nguyên",
+            "rank": "Trưởng ban Dịch thuật ",
+            "photo": "https://api.dicebear.com/9.x/notionists/svg?seed=Member03&backgroundColor=8fd8ff"
+          },
+          {
+            "name": "Hoàng Phú Minh",
+            "rank": "Phó ban Dịch thuật",
+            "photo": "https://api.dicebear.com/9.x/notionists/svg?seed=Member04&backgroundColor=8fd8ff"
+          }
+        ]
+      },
+      {
+        "label": "EXPERTISE",
+        "jp": "専門",
+        "c1": "#2f9e6f",
+        "c2": "#a8e0b8",
+        "members": [
+          {
+            "name": "Phan Nguyễn Gia Linh",
+            "rank": "Trưởng ban Chuyên môn",
+            "photo": "https://api.dicebear.com/9.x/notionists/svg?seed=Member05&backgroundColor=a8e0b8"
+          },
+          {
+            "name": "Nguyễn Phan Anh",
+            "rank": "Phó ban Chuyên môn",
+            "photo": "https://api.dicebear.com/9.x/notionists/svg?seed=Member06&backgroundColor=a8e0b8"
+          }
+        ]
+      },
+      {
+        "label": "HẬU CẦN",
+        "jp": "運営",
+        "c1": "#e58a00",
+        "c2": "#ffd27a",
+        "members": [
+          {
+            "name": "Nguyễn Bảo Ngân",
+            "rank": "Trưởng ban Hậu cần",
+            "photo": "https://api.dicebear.com/9.x/notionists/svg?seed=Member07&backgroundColor=ffd27a"
+          },
+          {
+            "name": "Đỗ Phương An",
+            "rank": "Phó ban Hậu cần",
+            "photo": "https://api.dicebear.com/9.x/notionists/svg?seed=Member08&backgroundColor=ffd27a"
+          }
+        ]
+      },
+      {
+        "label": "MEDIA-DESIGN",
+        "jp": "広報",
+        "c1": "#e0457b",
+        "c2": "#ffb3c8",
+        "members": [
+          {
+            "name": "Lê Minh Anh",
+            "rank": "Trưởng ban Media - Design",
+            "photo": "https://api.dicebear.com/9.x/notionists/svg?seed=Member09&backgroundColor=ffb3c8"
+          },
+          {
+            "name": "Nguyễn Hương Giang",
+            "rank": "Phó ban Media - Design",
+            "photo": "https://api.dicebear.com/9.x/notionists/svg?seed=Member10&backgroundColor=ffb3c8"
+          },
+          {
+            "name": "Điêu Huy Khánh",
+            "rank": "Phó ban Media - Design",
+            "photo": "https://api.dicebear.com/9.x/notionists/svg?seed=Member11&backgroundColor=ffb3c8"
+          }
+        ]
+      }
+    ]
+  }
+}

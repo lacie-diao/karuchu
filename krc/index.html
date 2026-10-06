@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Japanese Culture Club</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&family=Roboto:wght@400;500;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+<nav class="menu" id="menu" aria-label="Main"></nav>
+
+<header class="hero" id="top">
+  <img class="hero-bg" src="https://i.ibb.co/LXjYDPGP/rb-m26.jpg" alt="" onerror="this.remove()">
+  <h1 id="heroTitle"></h1>
+  <p class="hero-sub" id="heroSub"></p>
+  <div class="badge" id="heroBadge"></div>
+  <a class="chip" id="heroCta" href="#join"></a>
+</header>
+
+<section class="message" id="about"><div id="messageLines"></div></section>
+<section class="block" id="team"><h2 id="teamHead"></h2><div id="teamGroups"></div></section>
+<section class="block alt" id="events"><h2 id="evHead"></h2><div class="tiles" id="evTiles"></div></section>
+<section class="block" id="video"><h2 id="vidHead"></h2><div id="vidBox"></div></section>
+<section class="block alt" id="join"><h2 id="joinHead"></h2><p class="soon" id="joinStatus"></p><div id="joinBanner"></div></section>
+
+<section class="social"><h3 id="socHead"></h3><div class="icons" id="socIcons"></div></section>
+<footer><strong id="brand"></strong><nav id="footLinks"></nav><small id="copy"></small></footer>
+<a class="pagetop" href="#top">PAGE TOP</a>
+
+<script>
+const $ = s => document.querySelector(s);
+fetch('content.json').then(r => r.json()).then(d => {
+  document.title = d.site.title;
+  $('#menu').innerHTML = d.nav.map(n => `<a href="${n.href}">${n.label}<small>${n.sub}</small></a>`).join('');
+  $('#heroTitle').innerHTML = d.hero.title.map(l => `<span>${l}</span>`).join('');
+  $('#heroSub').textContent = d.hero.sub;
+  $('#heroBadge').textContent = d.hero.badge;
+  $('#heroCta').textContent = d.hero.cta.label; $('#heroCta').href = d.hero.cta.href;
+  $('#messageLines').innerHTML = d.message.map(l => `<p>${l}</p>`).join('');
+
+  $('#teamHead').textContent = d.team.heading;
+  $('#teamGroups').innerHTML = d.team.groups.map(g => `
+    <div class="group" style="--c1:${g.c1};--c2:${g.c2}">
+      <h3 class="group-title">${g.label}<small>${g.jp}</small></h3>
+      <div class="team-row">${g.members.map(p => `
+        <article class="card">
+          <div class="thumb"><b>${p.name.trim()[0]}</b>${p.photo ? `<img src="${p.photo}" alt="${p.name}" loading="lazy" onerror="this.remove()">` : ''}</div>
+          <h3>${p.name}</h3><span class="jp">${p.rank}</span>
+        </article>`).join('')}
+      </div>
+    </div>`).join('');
+
+  $('#evHead').textContent = d.events.heading;
+  $('#evTiles').innerHTML = d.events.items.map(i => `
+    <a class="tile" href="#" style="--c1:${i.c1};--c2:${i.c2}">
+      <div class="art">${i.photo ? `<img src="${i.photo}" alt="${i.jp}">` : `<b>${i.jp}</b>`}</div>
+      <div class="cap"><strong>${i.title}</strong><span>${i.text}</span></div>
+      <em class="more">${d.events.button}</em>
+    </a>`).join('');
+
+  const v = d.video;
+  $('#vidHead').textContent = v.heading;
+  $('#vidBox').innerHTML = `<a class="film" href="${v.url}"><span class="play"></span><strong>${v.title}</strong></a>
+    <p class="cap-c">${v.caption}</p><a class="btn" href="${v.url}">${v.button}</a>`;
+
+  const j = d.join;
+  $('#joinHead').textContent = j.heading;
+  $('#joinStatus').textContent = j.status;
+  $('#joinBanner').innerHTML = `<div class="banner"><strong>${j.banner.jp}</strong><span>${j.banner.text}</span><a class="btn" href="${j.banner.href}">${j.banner.button}</a></div>`;
+
+  $('#socHead').textContent = d.social.heading;
+  $('#socIcons').innerHTML = d.social.links.map(l => `<a href="${l.href}" aria-label="${l.label}">${l.label}</a>`).join('');
+  $('#brand').textContent = d.site.brand;
+  $('#footLinks').innerHTML = d.footer.links.map(l => `<a href="${l.href}">${l.label}</a>`).join('');
+  $('#copy').textContent = d.footer.copy;
+}).catch(() => {
+  document.body.insertAdjacentHTML('afterbegin', '<p class="err">Could not load content.json. Open this page through a local server (e.g. VS Code Live Server) instead of double-clicking the file.</p>');
+});
+
+const btn = $('#menuBtn'), menu = $('#menu');
+const toggle = open => { menu.classList.toggle('open', open); btn.classList.toggle('open', open); btn.setAttribute('aria-expanded', open); };
+btn.onclick = () => toggle(!menu.classList.contains('open'));
+menu.onclick = e => { if (e.target.closest('a')) toggle(false); };
+</script>
+</body>
+</html>
