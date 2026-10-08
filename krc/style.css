@@ -1,6 +1,6 @@
 :root{
   --sky:#00a3e8; --sky-deep:#0a6fd1; --ice:#d8f1ff; --ink:#1b2340; --paper:#f8f8f8; --line:#dfe3ea;
-  --jp:'Noto Sans JP',sans-serif; --en:'Roboto','Noto Sans JP',sans-serif;
+  --jp:'Shippori Mincho B1',serif; --en:'Shippori Mincho B1','Noto Sans JP',sans-serif;
 }
 *{box-sizing:border-box;margin:0}
 html{scroll-behavior:smooth}
@@ -28,16 +28,16 @@ h2{font:900 clamp(2rem,5vw,3rem)/1.2 var(--en);letter-spacing:.14em;color:var(--
 .hero h1{font:900 clamp(2.8rem,8vw,6rem)/1.25 var(--jp);letter-spacing:.04em;text-shadow:0 4px 30px rgba(0,60,140,.35); top: 0px;}
 .hero h1 span{display:block}
 .hero-sub{margin-top:24px;font:500 clamp(1rem,2vw,1.4rem) var(--en);letter-spacing:.3em}
-.badge{position:absolute;right:5vw;bottom:24vh;width:150px;height:150px;border:5px solid #fff;border-radius:50%;display:grid;place-items:center;text-align: center; font:600 1.1rem var(--en);letter-spacing:.1em;transform:rotate(-12deg)}
+.badge{position:absolute;right:5vw;bottom:24vh;width:150px;height:150px;border:5px solid #fff;border-radius:50%;display:grid;place-items:center;text-align: center; font:1000 1.3rem var(--jp);letter-spacing:.16em;transform:rotate(-12deg);}
 .chip{position:absolute;right:54px;bottom:24px;padding:18px 32px;border-radius:14px;color:#fff;font:700 1.1rem var(--en);letter-spacing:.08em;background:linear-gradient(90deg,#8fd8ff,#4b7bf0,#d37be0);box-shadow:0 8px 24px rgba(0,40,120,.3)}
 .chip:hover{filter:brightness(1.08)}
 
-.hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.9) saturate(1.1)}
+.hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.9) saturate(1.1);}
 .hero h1,.hero-sub{position:relative;z-index:1}
 .badge,.chip{z-index:1}
 
 /* message */
-.message{position:relative;padding:22vh 24px;background:linear-gradient(180deg,var(--ice),#22adf0 35%,var(--sky) 100%);overflow:hidden}
+.message{position:relative;padding:22vh 24px;background:linear-gradient(180deg,#ff8bf9 55%,#f8f8f8 100%);overflow:hidden}
 .message>div{max-width:640px;margin:0 auto}
 .message p{color:#fff;font:700 clamp(1rem,2.4vw,1.35rem)/1 var(--jp);letter-spacing:.14em;margin:0 0 32px;text-shadow:0 1px 8px rgba(0,80,160,.25)}
 .pill{position:absolute;width:56px;height:38px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff,#b9c3cf);box-shadow:6px 10px 16px rgba(0,50,110,.25)}
@@ -52,7 +52,7 @@ h2{font:900 clamp(2rem,5vw,3rem)/1.2 var(--en);letter-spacing:.14em;color:var(--
 .card{background:#fff;border-radius:18px;padding:32px 24px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:8px;box-shadow:0 2px 12px rgba(20,40,90,.05)}
 .thumb{width:100%;aspect-ratio:.8;max-width:220px;border-radius:24px;display:grid;place-items: start center;background:linear-gradient(150deg,var(--c1),var(--c2));margin-bottom:16px}
 .thumb b{font:900 6rem/1 var(--jp);color:#fff;text-shadow:0 6px 18px rgba(0,0,0,.2)}
-.card h3{font:900 1.5rem var(--en);color:var(--ink);letter-spacing:.04em}
+.card h3{font:800 1.5rem var(--jp);color:var(--ink);letter-spacing:.02em}
 .jp{color:var(--sky-deep);font-weight:700;letter-spacing:.2em}
 .card p{font-size:.95rem;color:#4a5270;flex:1}
 .btn{display:inline-flex;align-items:center;gap:12px;margin-top:16px;padding:12px 40px;border:1px solid #666;border-radius:999px;font:500 .95rem var(--en);letter-spacing:.14em;color:#555;transition:background .2s,color .2s}
@@ -110,7 +110,7 @@ footer nav{display:flex;gap:24px}
 .team-row .card h3{font-size:1.25rem}
 
 html {
-  zoom: 110%;
+  zoom: 100%;
 }
 
 @media(min-width:930px){

@@ -98,7 +98,7 @@
     "heading": "VIDEO",
     "title": "カルチュー",
     "caption": "カルチュー",
-    "url": "#",
+    "url": "https://youtu.be/dQw4w9WgXcQ",
     "button": "View more"
   },
   "join": {
@@ -178,7 +178,7 @@
         "members": [
           {
             "name": "Ngô Phú Nguyên",
-            "rank": "Trưởng ban Dịch thuật ",
+            "rank": "Trưởng ban <br> Dịch thuật ",
             "photo": "https://cdn.laciediao-pdp.io.vn/krc_core/_MG_4500.webp"
           },
           {
@@ -196,7 +196,7 @@
         "members": [
           {
             "name": "Phan Nguyễn Gia Linh",
-            "rank": "Trưởng ban Chuyên môn",
+            "rank": "Trưởng ban <br>Chuyên môn",
             "photo": "https://cdn.laciediao-pdp.io.vn/krc_core/_MG_4501.webp"
           },
           {
@@ -232,17 +232,17 @@
         "members": [
           {
             "name": "Lê Minh Anh",
-            "rank": "Trưởng ban Media - Design",
+            "rank": "Trưởng ban <br>Media - Design",
             "photo": "https://cdn.laciediao-pdp.io.vn/krc_core/_MG_4439.webp"
           },
           {
             "name": "Nguyễn Hương Giang",
-            "rank": "Phó ban Media - Design",
+            "rank": "Phó ban <br>Media - Design",
             "photo": "https://cdn.laciediao-pdp.io.vn/krc_core/_MG_4453.webp"
           },
           {
             "name": "Điêu Huy Khánh",
-            "rank": "Phó ban Media - Design",
+            "rank": "Phó ban <br>Media - Design",
             "photo": "https://cdn.laciediao-pdp.io.vn/krc_core/_MG_4571.webp"
           }
         ]
