@@ -1,9 +1,13 @@
 :root{
+  /* NOTE: Shippori Mincho B1 is NOT downloaded/linked yet. The page still looks fine because the
+     browser falls back to an installed Japanese serif. Add it to the Google Fonts <link> in index.html
+     later if you want every visitor to see the exact same font. */
   --sky:#00a3e8; --sky-deep:#0a6fd1; --ice:#d8f1ff; --ink:#1b2340; --paper:#f8f8f8; --line:#dfe3ea;
   --jp:'Shippori Mincho B1',serif; --en:'Shippori Mincho B1','Noto Sans JP',sans-serif;
 }
 *{box-sizing:border-box;margin:0}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;scroll-snap-type:y proximity}
+.hero,.message{scroll-snap-align:start}
 body{font-family:var(--jp);color:var(--ink);background:#fff;line-height:1.8}
 a{color:inherit;text-decoration:none}
 :focus-visible{outline:3px solid var(--sky);outline-offset:3px}
@@ -32,14 +36,31 @@ h2{font:900 clamp(2rem,5vw,3rem)/1.2 var(--en);letter-spacing:.14em;color:var(--
 .chip{position:absolute;right:54px;bottom:24px;padding:18px 32px;border-radius:14px;color:#fff;font:700 1.1rem var(--en);letter-spacing:.08em;background:linear-gradient(90deg,#8fd8ff,#4b7bf0,#d37be0);box-shadow:0 8px 24px rgba(0,40,120,.3)}
 .chip:hover{filter:brightness(1.08)}
 
-.hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.9) saturate(1.1);}
+.hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.92) saturate(1.1);}
 .hero h1,.hero-sub{position:relative;z-index:1}
 .badge,.chip{z-index:1}
 
-/* message */
-.message{position:relative;padding:22vh 24px;background:linear-gradient(180deg,#ff8bf9 55%,#f8f8f8 100%);overflow:hidden}
-.message>div{max-width:640px;margin:0 auto}
+/* message (text left, conveyor right) */
+.message{position:relative;min-height:100vh;display:flex;align-items:stretch;background:linear-gradient(180deg,#ff8bf9 55%,#f8f8f8 100%);overflow:hidden}
+.message-text{flex:1 1 55%;min-width:0;display:flex;align-items:center;padding:12vh 24px 12vh max(24px,6vw)}
+.message-text>div{max-width:640px}
 .message p{color:#fff;font:700 clamp(1rem,2.4vw,1.35rem)/1 var(--jp);letter-spacing:.14em;margin:0 0 32px;text-shadow:0 1px 8px rgba(0,80,160,.25)}
+.message-conveyor{
+  --shown:2;        /* how many photos are visible at once */
+  --img-h:320px;    /* height of each photo */
+  --gap:20px;       /* space between photos */
+  flex:0 1 38%;
+  align-self:center;   /* centers the strip instead of stretching it full height */
+  height:calc(var(--shown) * var(--img-h) + (var(--shown) - 1) * var(--gap));
+  margin-right:5vw;
+  overflow:hidden;
+  -webkit-mask-image:linear-gradient(180deg,transparent,#000 8%,#000 92%,transparent);
+  mask-image:linear-gradient(180deg,transparent,#000 8%,#000 92%,transparent);
+}
+.conveyor-track{display:flex;flex-direction:column;gap:20px;animation:conveyorScroll 24s linear infinite}
+.message-conveyor:hover .conveyor-track{animation-play-state:paused}
+.conveyor-track img{width:100%;aspect-ratio:3/2;object-fit:cover;border-radius:18px;display:block;box-shadow:0 10px 24px rgba(0,20,60,.25)}
+@keyframes conveyorScroll{from{transform:translateY(0)}to{transform:translateY(-50%)}}
 .pill{position:absolute;width:56px;height:38px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff,#b9c3cf);box-shadow:6px 10px 16px rgba(0,50,110,.25)}
 .pill.ok{width:120px;height:auto;border-radius:0;background:none;box-shadow:none;filter:drop-shadow(6px 10px 16px rgba(0,50,110,.25))}
 .p1{top:10%;left:14%;transform:rotate(-20deg)}
@@ -120,7 +141,22 @@ html {
 @media(max-width:890px){
   .badge{width:100px;height:100px;font-size:.65rem;right:24px;bottom:110px}
   .block{padding:80px 20px}
-  .footer{justify-content:center;text-align:center}
-  .hero h1{font:900 clamp(2.8rem,8vw,6rem)/1.25 var(--jp);letter-spacing:.02em;text-shadow:0 4px 30px rgba(0,60,140,.35); top: 330px; margin-left: -45px;}
+  footer{justify-content:center;text-align:center}
+  .message{flex-direction:column;min-height:auto}
+  .message-text{padding:72px 20px 24px}
+  .message-conveyor{flex:0 0 300px;padding:0 20px 28px;-webkit-mask-image:none;mask-image:none}
+  .hero h1{font:900 clamp(2.8rem,8vw,6rem)/1.25 var(--jp);letter-spacing:.02em;text-shadow:0 4px 30px rgba(0,60,140,.35); margin-bottom: -400px; margin-left: -45px;}
+  .message-conveyor{
+  --shown:2;        /* how many photos are visible at once */
+  --img-h:320px;    /* height of each photo */
+  --gap:20px;       /* space between photos */
+  flex:0 1 38%;
+  align-self:center;   /* centers the strip instead of stretching it full height */
+  height:calc(var(--shown) * var(--img-h) + (var(--shown) - 1) * var(--gap));
+  margin-right:5vw;
+  overflow:hidden;
+  -webkit-mask-image:linear-gradient(180deg,transparent,#000 8%,#000 92%,transparent);
+  mask-image:linear-gradient(180deg,transparent,#000 8%,#000 92%,transparent);
 }
-@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+}
+@media(prefers-reduced-motion:reduce){.conveyor-track{animation:none}html{scroll-snap-type:none}*{transition:none!important;scroll-behavior:auto!important}}

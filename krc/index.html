@@ -21,7 +21,10 @@
   <a class="chip" id="heroCta" href="#join"></a>
 </header>
 
-<section class="message" id="about"><div id="messageLines"></div></section>
+<section class="message" id="about">
+  <div class="message-text"><div id="messageLines"></div></div>
+  <div class="message-conveyor"><div class="conveyor-track" id="conveyorTrack"></div></div>
+</section>
 <section class="block" id="team"><h2 id="teamHead"></h2><div id="teamGroups"></div></section>
 <section class="block alt" id="events"><h2 id="evHead"></h2><div class="tiles" id="evTiles"></div></section>
 <section class="block" id="video"><h2 id="vidHead"></h2><div id="vidBox"></div></section>
@@ -40,6 +43,14 @@ fetch('content.json').then(r => r.json()).then(d => {
   $('#heroSub').textContent = d.hero.sub;
   $('#heroBadge').textContent = d.hero.badge;
   $('#heroCta').textContent = d.hero.cta.label; $('#heroCta').href = d.hero.cta.href;
+  // Conveyor in #about: list is doubled for a seamless loop. Add/remove URLs in "conveyor.photos" (content.json).
+  const photos = (d.conveyor && d.conveyor.photos) || [];
+  const track = $('#conveyorTrack');
+  if (photos.length) {
+    const imgs = photos.map(src => `<img src="${src}" alt="" loading="lazy" onerror="this.remove()">`).join('');
+    track.innerHTML = imgs + imgs;
+    track.style.animationDuration = (photos.length * 4) + 's';
+  }
   $('#messageLines').innerHTML = d.message.map(l => `<p>${l}</p>`).join('');
 
   $('#teamHead').textContent = d.team.heading;

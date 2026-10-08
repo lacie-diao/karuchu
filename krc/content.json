@@ -1,6 +1,6 @@
 {
   "site": {
-    "title": "カルチュー ホームページ | KaruChu - CVA 日本語クラブ",
+    "title": "カルチュー | KaruChu - CVA 日本語クラブ",
     "brand": "カルチュー"
   },
   "nav": [
@@ -40,13 +40,7 @@
     "cta": {
       "label": "Liên hệ với chúng mình!",
       "href": "#join"
-    },
-    "photos": [
-      "https://cdn.laciediao-pdp.io.vn/808374285_930043676846581_3301574059598447450_n.webp",
-      "https://cdn.laciediao-pdp.io.vn/_MG_3143.webp",
-      "https://cdn.laciediao-pdp.io.vn/663223660_901334222937777_3407555354112630042_n.webp",
-      "https://cdn.laciediao-pdp.io.vn/karuchu.jpg"
-    ]
+    }
   },
   "message": [
     "1日は、いろんな発見の連続だ。",
@@ -56,8 +50,18 @@
     "ここが、そのきっかけの場所になりますように。",
     "あなたの1日は、いい発見だ。"
   ],
+  "conveyor": {
+    "photos": [
+      "https://cdn.laciediao-pdp.io.vn/karuchu-memories/_MG_0971.webp",
+      "https://cdn.laciediao-pdp.io.vn/karuchu-memories/_MG_8784_01.webp",
+      "https://cdn.laciediao-pdp.io.vn/karuchu-memories/_MG_7457.webp",
+      "https://cdn.laciediao-pdp.io.vn/karuchu-memories/_MG_3204.webp",
+      "https://cdn.laciediao-pdp.io.vn/karuchu-memories/_MG_7488.webp",
+      "https://cdn.laciediao-pdp.io.vn/karuchu-memories/_MG_90.webp"
+    ]
+  },
   "events": {
-    "heading": "SPECIAL EVENTS",
+    "heading": "HOẠT ĐỘNG",
     "items": [
       {
         "title": "Club Fair 2026",
@@ -92,7 +96,7 @@
         "c2": "#c46bd8"
       }
     ],
-    "button": "View more"
+    "button": "Xem thêm"
   },
   "video": {
     "heading": "VIDEO",
@@ -102,8 +106,8 @@
     "button": "View more"
   },
   "join": {
-    "heading": "JOIN",
-    "status": "Applications open next term…",
+    "heading": "LIÊN HỆ",
+    "status": "",
     "banner": {
       "jp": "見学、大歓迎。",
       "text": "Drop by any session and try an activity for free.",
