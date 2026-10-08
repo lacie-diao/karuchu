@@ -25,14 +25,14 @@ h2{font:900 clamp(2rem,5vw,3rem)/1.2 var(--en);letter-spacing:.14em;color:var(--
   background:radial-gradient(ellipse 50% 40% at 50% 0,#fff 0,rgba(255,255,255,0) 70%),
   repeating-linear-gradient(115deg,rgba(255,255,255,.06) 0 2px,transparent 2px 22px),
   linear-gradient(170deg,#7fd0ff 0,#1a86e6 55%,#0a4fb0 100%)}
-.hero h1{font:900 clamp(2.8rem,8vw,6rem)/1.25 var(--jp);letter-spacing:.04em;text-shadow:0 4px 30px rgba(0,60,140,.35)}
+.hero h1{font:900 clamp(2.8rem,8vw,6rem)/1.25 var(--jp);letter-spacing:.04em;text-shadow:0 4px 30px rgba(0,60,140,.35); top: 0px;}
 .hero h1 span{display:block}
 .hero-sub{margin-top:24px;font:500 clamp(1rem,2vw,1.4rem) var(--en);letter-spacing:.3em}
 .badge{position:absolute;right:5vw;bottom:24vh;width:150px;height:150px;border:5px solid #fff;border-radius:50%;display:grid;place-items:center;text-align: center; font:600 1.1rem var(--en);letter-spacing:.1em;transform:rotate(-12deg)}
 .chip{position:absolute;right:54px;bottom:24px;padding:18px 32px;border-radius:14px;color:#fff;font:700 1.1rem var(--en);letter-spacing:.08em;background:linear-gradient(90deg,#8fd8ff,#4b7bf0,#d37be0);box-shadow:0 8px 24px rgba(0,40,120,.3)}
 .chip:hover{filter:brightness(1.08)}
 
-.hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.88) saturate(1.1)}
+.hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.9) saturate(1.1)}
 .hero h1,.hero-sub{position:relative;z-index:1}
 .badge,.chip{z-index:1}
 
@@ -50,7 +50,7 @@ h2{font:900 clamp(2rem,5vw,3rem)/1.2 var(--en);letter-spacing:.14em;color:var(--
 .block.alt{background:linear-gradient(180deg,#fff,#eceff3)}
 .cards{max-width:960px;margin:auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
 .card{background:#fff;border-radius:18px;padding:32px 24px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:8px;box-shadow:0 2px 12px rgba(20,40,90,.05)}
-.thumb{width:100%;aspect-ratio:1;max-width:220px;border-radius:24px;display:grid;place-items:center;background:linear-gradient(150deg,var(--c1),var(--c2));margin-bottom:16px}
+.thumb{width:100%;aspect-ratio:.8;max-width:220px;border-radius:24px;display:grid;place-items: start center;background:linear-gradient(150deg,var(--c1),var(--c2));margin-bottom:16px}
 .thumb b{font:900 6rem/1 var(--jp);color:#fff;text-shadow:0 6px 18px rgba(0,0,0,.2)}
 .card h3{font:900 1.5rem var(--en);color:var(--ink);letter-spacing:.04em}
 .jp{color:var(--sky-deep);font-weight:700;letter-spacing:.2em}
@@ -109,9 +109,18 @@ footer nav{display:flex;gap:24px}
 .thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .team-row .card h3{font-size:1.25rem}
 
-@media(max-width:640px){
-  .badge{width:100px;height:100px;font-size:.8rem;right:24px;bottom:110px}
+html {
+  zoom: 110%;
+}
+
+@media(min-width:930px){
+  .hero h1{font:1000 clamp(2.4rem,8vw,6.5rem)/1.25 var(--jp);letter-spacing:.04em;text-shadow:0 4px 30px rgba(0,60,140,.35); top: 200px; right: 115px; margin-left: 20px;}
+  .badge{width:150px;height:150px;font-size:.9rem;right:94px;bottom:150px} 
+}
+@media(max-width:890px){
+  .badge{width:100px;height:100px;font-size:.65rem;right:24px;bottom:110px}
   .block{padding:80px 20px}
-  footer{justify-content:center;text-align:center}
+  .footer{justify-content:center;text-align:center}
+  .hero h1{font:900 clamp(2.8rem,8vw,6rem)/1.25 var(--jp);letter-spacing:.02em;text-shadow:0 4px 30px rgba(0,60,140,.35); top: 330px; margin-left: -45px;}
 }
 @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
