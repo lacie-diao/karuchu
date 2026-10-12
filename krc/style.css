@@ -3,7 +3,7 @@
      browser falls back to an installed Japanese serif. Add it to the Google Fonts <link> in index.html
      later if you want every visitor to see the exact same font. */
   --sky:#00a3e8; --sky-deep:#0a6fd1; --ice:#d8f1ff; --ink:#1b2340; --paper:#f8f8f8; --line:#dfe3ea;
-  --jp:'Shippori Mincho B1',serif; --en:'Shippori Mincho B1','Noto Sans JP',sans-serif;
+  --jp:'Shippori Mincho B1',serif; --en:'Noto Sans JP',sans-serif;
 }
 *{box-sizing:border-box;margin:0}
 html{scroll-behavior:smooth;scroll-snap-type:y proximity}
@@ -29,7 +29,7 @@ h2{font:900 clamp(2rem,5vw,3rem)/1.2 var(--en);letter-spacing:.14em;color:var(--
   background:radial-gradient(ellipse 50% 40% at 50% 0,#fff 0,rgba(255,255,255,0) 70%),
   repeating-linear-gradient(115deg,rgba(255,255,255,.06) 0 2px,transparent 2px 22px),
   linear-gradient(170deg,#7fd0ff 0,#1a86e6 55%,#0a4fb0 100%)}
-.hero h1{font:900 clamp(2.8rem,8vw,6rem)/1.25 var(--jp);letter-spacing:.04em;text-shadow:0 4px 30px rgba(0,60,140,.35); top: 0px;}
+.hero h1{font:900 clamp(2.8rem,8vw,6rem)/1.25 var(--jp);letter-spacing:.04em;text-shadow:0 4px 30px rgba(0,60,140,.35);}
 .hero h1 span{display:block}
 .hero-sub{margin-top:24px;font:500 clamp(1rem,2vw,1.4rem) var(--en);letter-spacing:.3em}
 .badge{position:absolute;right:5vw;bottom:24vh;width:150px;height:150px;border:5px solid #fff;border-radius:50%;display:grid;place-items:center;text-align: center; font:1000 1.3rem var(--jp);letter-spacing:.16em;transform:rotate(-12deg);}
@@ -135,7 +135,7 @@ html {
 }
 
 @media(min-width:930px){
-  .hero h1{font:1000 clamp(2.4rem,8vw,6.5rem)/1.25 var(--jp);letter-spacing:.04em;text-shadow:0 4px 30px rgba(0,60,140,.35); top: 200px; right: 115px; margin-left: 20px;}
+  .hero h1{font:1000 clamp(2.4rem,8vw,6.5rem)/1.25 var(--jp);letter-spacing:.04em;text-shadow:0 4px 30px rgba(0,60,140,.35); margin-top: 300px; margin-left: -110px;}
   .badge{width:150px;height:150px;font-size:.9rem;right:94px;bottom:150px} 
 }
 @media(max-width:890px){
@@ -149,6 +149,28 @@ html {
   .message-conveyor{
   --shown:2;        /* how many photos are visible at once */
   --img-h:320px;    /* height of each photo */
+  --gap:20px;       /* space between photos */
+  flex:0 1 38%;
+  align-self:center;   /* centers the strip instead of stretching it full height */
+  height:calc(var(--shown) * var(--img-h) + (var(--shown) - 1) * var(--gap));
+  margin-right:5vw;
+  overflow:hidden;
+  -webkit-mask-image:linear-gradient(180deg,transparent,#000 8%,#000 92%,transparent);
+  mask-image:linear-gradient(180deg,transparent,#000 8%,#000 92%,transparent);
+}
+}
+@media(max-width:500px){
+  .badge{width:90px;height:90px;font-size:.4rem;right:20px;bottom:180px; border: 3.5px solid #fff; font:1000 .65rem var(--jp);letter-spacing:.07em;}
+  .block{padding:80px 20px}
+  .chip{padding:12px 24px;font-size:.6rem; bottom: 15px}
+  footer{justify-content:center;text-align:center}
+  .message{flex-direction:column;min-height:auto}
+  .message-text{padding:72px 20px 24px}
+  .message-conveyor{flex:0 0 300px;padding:0 20px 28px;-webkit-mask-image:none;mask-image:none}
+  .hero h1{font:900 clamp(.8rem,8vw,2rem)/1.25 var(--jp);letter-spacing:.02em;text-shadow:0 4px 30px rgba(0,60,140,.35); margin-bottom: -400px; margin-left: -35px;}
+  .message-conveyor{
+  --shown:2;        /* how many photos are visible at once */
+  --img-h:120px;    /* height of each photo */
   --gap:20px;       /* space between photos */
   flex:0 1 38%;
   align-self:center;   /* centers the strip instead of stretching it full height */
