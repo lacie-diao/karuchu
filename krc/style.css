@@ -24,15 +24,16 @@ h2{font:900 clamp(2rem,5vw,3rem)/1.2 var(--en);letter-spacing:.14em;color:var(--
 .menu a small{display:block;font:500 .85rem var(--jp);letter-spacing:.2em;opacity:.85}
 
 /* hero */
-.hero{position:relative;min-height:100svh;display:flex;flex-direction:column;justify-content:center;padding:0 max(24px,10vw);color:#fff;overflow:hidden;
+.hero{position:relative;min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;padding-bottom:14vh;color:#fff;overflow:hidden;
   background:radial-gradient(ellipse 50% 40% at 50% 0,#fff 0,rgba(255,255,255,0) 70%),
   repeating-linear-gradient(115deg,rgba(255,255,255,.06) 0 2px,transparent 2px 22px),
   linear-gradient(170deg,#7fd0ff 0,#1a86e6 55%,#0a4fb0 100%)}
 .hero h1{
-  position:relative;font:900 clamp(2.8rem,8vw,5.5rem)/1.25 var(--jp);letter-spacing:.04em;text-shadow:0 4px 30px rgba(0,60,140,.35);
+  position:relative;font:900 clamp(2.8rem,8vw,7.5rem)/1.25 var(--jp);letter-spacing:.04em;
+  text-shadow:0 4px 30px rgba(0,60,140,.35);
   /* FIX: removed margin-top:70vh and margin-left:-15vh (they pushed the title off-screen and caused the 768p/1080p mismatch).
      18vh is the only value to tune. */
-  margin:70vh 0 0 -7vw;
+  margin:0 0 -15vh 1vw;
 }
 .hero h1 span{display:block}
 .hero-sub{margin-top:24px;font:500 clamp(1rem,2vw,1.4rem) var(--en);letter-spacing:.3em}
@@ -158,6 +159,18 @@ footer nav{display:flex;gap:24px}
 @media(max-width:500px) and (orientation:portrait){
   .message-conveyor,.hero-conveyor{pointer-events:none}
   .conveyor-track{animation:conveyorScroll 24s linear infinite}
+}
+/* short windows (laptop at 768p, windowed browsers) */
+@media (max-height:900px){
+  .hero{height:100vh}
+  .hero h1{font-size:clamp(2.2rem,6vw,5rem);
+    margin: 0 0 -15vh 1vw;
+  }
+}
+
+/* tall screens (1080p fullscreen and up) */
+@media (min-height:900px){
+  .hero h1{font-size:clamp(2.8rem,7vw,5.5rem)}
 }
 
 @media(prefers-reduced-motion:reduce){.conveyor-track{animation:none}html{scroll-snap-type:none}*{transition:none!important;scroll-behavior:auto!important}}
