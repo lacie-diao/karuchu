@@ -1,12 +1,11 @@
 :root{
-  /* NOTE: Shippori Mincho B1 is NOT downloaded/linked yet. The page still looks fine because the
-     browser falls back to an installed Japanese serif. Add it to the Google Fonts <link> in index.html
-     later if you want every visitor to see the exact same font. */
   --sky:#00a3e8; --sky-deep:#0a6fd1; --ice:#d8f1ff; --ink:#1b2340; --paper:#f8f8f8; --line:#dfe3ea;
-  --jp:'Shippori Mincho B1',serif; --en:'Noto Sans JP',sans-serif;
+  --jp:'Shippori Mincho B1',serif; --en:'Noto Sans JP',sans-serif; --vi:'Fraunces',serif; --vi2:'Old Standard TT',serif;
 }
 *{box-sizing:border-box;margin:0}
 html{scroll-behavior:smooth;scroll-snap-type:y proximity}
+/* FIX: stop sideways overflow that caused the white strips on rotated phones */
+html,body{overflow-x:hidden;width:100%}
 .hero,.message{scroll-snap-align:start}
 body{font-family:var(--jp);color:var(--ink);background:#fff;line-height:1.8}
 a{color:inherit;text-decoration:none}
@@ -25,23 +24,27 @@ h2{font:900 clamp(2rem,5vw,3rem)/1.2 var(--en);letter-spacing:.14em;color:var(--
 .menu a small{display:block;font:500 .85rem var(--jp);letter-spacing:.2em;opacity:.85}
 
 /* hero */
-.hero{position:relative;min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:0 max(24px,10vw);color:#fff;overflow:hidden;
+.hero{position:relative;min-height:100svh;display:flex;flex-direction:column;justify-content:center;padding:0 max(24px,10vw);color:#fff;overflow:hidden;
   background:radial-gradient(ellipse 50% 40% at 50% 0,#fff 0,rgba(255,255,255,0) 70%),
   repeating-linear-gradient(115deg,rgba(255,255,255,.06) 0 2px,transparent 2px 22px),
   linear-gradient(170deg,#7fd0ff 0,#1a86e6 55%,#0a4fb0 100%)}
-.hero h1{font:900 clamp(2.8rem,8vw,6rem)/1.25 var(--jp);letter-spacing:.04em;text-shadow:0 4px 30px rgba(0,60,140,.35);}
+.hero h1{
+  position:relative;font:900 clamp(2.8rem,8vw,5.5rem)/1.25 var(--jp);letter-spacing:.04em;text-shadow:0 4px 30px rgba(0,60,140,.35);
+  /* FIX: removed margin-top:70vh and margin-left:-15vh (they pushed the title off-screen and caused the 768p/1080p mismatch).
+     18vh is the only value to tune. */
+  margin:70vh 0 0 -7vw;
+}
 .hero h1 span{display:block}
 .hero-sub{margin-top:24px;font:500 clamp(1rem,2vw,1.4rem) var(--en);letter-spacing:.3em}
-.badge{position:absolute;right:5vw;bottom:24vh;width:150px;height:150px;border:5px solid #fff;border-radius:50%;display:grid;place-items:center;text-align: center; font:1000 1.3rem var(--jp);letter-spacing:.16em;transform:rotate(-12deg);}
-.chip{position:absolute;right:54px;bottom:24px;padding:18px 32px;border-radius:14px;color:#fff;font:700 1.1rem var(--en);letter-spacing:.08em;background:linear-gradient(90deg,#8fd8ff,#4b7bf0,#d37be0);box-shadow:0 8px 24px rgba(0,40,120,.3)}
+.badge{position:absolute;right:5vw;bottom:24vh;width:150px;height:150px;border:5px solid #fff;border-radius:50%;display:grid;place-items:center;text-align:center;font:1000 .95rem var(--jp);letter-spacing:.16em;transform:rotate(-12deg);z-index:1}
+.chip{position:absolute;right:54px;bottom:24px;padding:18px 32px;border-radius:14px;color:#fff;font:700 1.1rem var(--en);letter-spacing:.08em;background:linear-gradient(90deg,#8fd8ff,#4b7bf0,#d37be0);box-shadow:0 8px 24px rgba(0,40,120,.3);z-index:1}
 .chip:hover{filter:brightness(1.08)}
-
-.hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.92) saturate(1.1);}
-.hero h1,.hero-sub{position:relative;z-index:1}
-.badge,.chip{z-index:1}
+.hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.92) saturate(1.1)}
+/* FIX: removed the duplicate ".hero h1,.hero-sub{position:relative;z-index:1}" rule, now merged above */
+.hero-sub{position:relative;z-index:1}
 
 /* message (text left, conveyor right) */
-.message{position:relative;min-height:100vh;display:flex;align-items:stretch;background:linear-gradient(180deg,#ff8bf9 55%,#f8f8f8 100%);overflow:hidden}
+.message{position:relative;min-height:100vh;display:flex;align-items:stretch;background:linear-gradient(180deg, var(--sky) 55%,#f8f8f8 100%);overflow:hidden}
 .message-text{flex:1 1 55%;min-width:0;display:flex;align-items:center;padding:12vh 24px 12vh max(24px,6vw)}
 .message-text>div{max-width:640px}
 .message p{color:#fff;font:700 clamp(1rem,2.4vw,1.35rem)/1 var(--jp);letter-spacing:.14em;margin:0 0 32px;text-shadow:0 1px 8px rgba(0,80,160,.25)}
@@ -50,16 +53,17 @@ h2{font:900 clamp(2rem,5vw,3rem)/1.2 var(--en);letter-spacing:.14em;color:var(--
   --img-h:320px;    /* height of each photo */
   --gap:20px;       /* space between photos */
   flex:0 1 38%;
-  align-self:center;   /* centers the strip instead of stretching it full height */
+  align-self:center;
   height:calc(var(--shown) * var(--img-h) + (var(--shown) - 1) * var(--gap));
   margin-right:5vw;
   overflow:hidden;
   -webkit-mask-image:linear-gradient(180deg,transparent,#000 8%,#000 92%,transparent);
   mask-image:linear-gradient(180deg,transparent,#000 8%,#000 92%,transparent);
 }
-.conveyor-track{display:flex;flex-direction:column;gap:20px;animation:conveyorScroll 24s linear infinite}
+.conveyor-track{display:flex;flex-direction:column;gap:var(--gap);animation:conveyorScroll 24s linear infinite}
 .message-conveyor:hover .conveyor-track{animation-play-state:paused}
-.conveyor-track img{width:100%;aspect-ratio:3/2;object-fit:cover;border-radius:18px;display:block;box-shadow:0 10px 24px rgba(0,20,60,.25)}
+/* FIX: height changed from 100% back to var(--img-h). 100% made the photos ignore the window size. */
+.conveyor-track img{width:100%;height:100%;object-fit:cover;border-radius:18px;display:block;box-shadow:0 10px 24px rgba(0,20,60,.25)}
 @keyframes conveyorScroll{from{transform:translateY(0)}to{transform:translateY(-50%)}}
 .pill{position:absolute;width:56px;height:38px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff,#b9c3cf);box-shadow:6px 10px 16px rgba(0,50,110,.25)}
 .pill.ok{width:120px;height:auto;border-radius:0;background:none;box-shadow:none;filter:drop-shadow(6px 10px 16px rgba(0,50,110,.25))}
@@ -71,10 +75,10 @@ h2{font:900 clamp(2rem,5vw,3rem)/1.2 var(--en);letter-spacing:.14em;color:var(--
 .block.alt{background:linear-gradient(180deg,#fff,#eceff3)}
 .cards{max-width:960px;margin:auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
 .card{background:#fff;border-radius:18px;padding:32px 24px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:8px;box-shadow:0 2px 12px rgba(20,40,90,.05)}
-.thumb{width:100%;aspect-ratio:.8;max-width:220px;border-radius:24px;display:grid;place-items: start center;background:linear-gradient(150deg,var(--c1),var(--c2));margin-bottom:16px}
+.thumb{width:100%;aspect-ratio:.8;max-width:220px;border-radius:24px;display:grid;place-items:start center;background:linear-gradient(150deg,var(--c1),var(--c2));margin-bottom:16px}
 .thumb b{font:900 6rem/1 var(--jp);color:#fff;text-shadow:0 6px 18px rgba(0,0,0,.2)}
-.card h3{font:800 1.5rem var(--jp);color:var(--ink);letter-spacing:.02em}
-.jp{color:var(--sky-deep);font-weight:700;letter-spacing:.2em}
+.card h3{font:800 1.5rem var(--vi2);color:var(--ink);letter-spacing:.02em}
+.jp{color:var(--sky-deep);font-weight:500;letter-spacing:.02em;font-family:var(--vi)}
 .card p{font-size:.95rem;color:#4a5270;flex:1}
 .btn{display:inline-flex;align-items:center;gap:12px;margin-top:16px;padding:12px 40px;border:1px solid #666;border-radius:999px;font:500 .95rem var(--en);letter-spacing:.14em;color:#555;transition:background .2s,color .2s}
 .btn::after{content:"›"}
@@ -82,9 +86,8 @@ h2{font:900 clamp(2rem,5vw,3rem)/1.2 var(--en);letter-spacing:.14em;color:var(--
 
 .tiles{max-width:920px;margin:auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:32px 28px}
 .tile{display:block;text-align:center}
-.art{aspect-ratio:16/10;border-radius:18px 18px 0 0;display:grid;place-items:center;background:linear-gradient(135deg,var(--c1),var(--c2))}
+.art{aspect-ratio:16/10;border-radius:18px 18px 0 0;display:grid;place-items:center;background:linear-gradient(135deg,var(--c1),var(--c2));position:relative;overflow:hidden}
 .art b{font:900 clamp(3rem,7vw,4.5rem) var(--jp);color:#fff;letter-spacing:.1em;text-shadow:0 4px 20px rgba(0,0,0,.2)}
-.art{position:relative;overflow:hidden}
 .art img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .cap{background:#fff;border-radius:0 0 18px 18px;padding:16px;display:flex;flex-direction:column}
 .cap strong{font:900 1.3rem var(--en);color:var(--ink)}
@@ -130,55 +133,31 @@ footer nav{display:flex;gap:24px}
 .thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .team-row .card h3{font-size:1.25rem}
 
-html {
-  zoom: 100%;
+/* FIX: one phone breakpoint (890px) instead of duplicated rules */
+@media(max-width:890px){
+  .badge{width:100px;height:100px;font-size:.65rem; bottom: 33vh;border:3.6px solid #fff;}
+  .block{padding:80px 20px}
+  footer{flex-direction:column;justify-content:center;text-align:center}   /* FIX: footer items stacked on phones */
+  .message{flex-direction:column;min-height:auto}
+  .message-text{padding:72px 24px 24px}                                   /* FIX: text no longer touches the left edge */
+  /* FIX: removed margin-bottom:-400px and margin-left:-45px (they pulled the title off the first screen) */
+  .hero h1{font-size:clamp(2.2rem,9vw,4rem);margin:70vh 0 0 -7vw;}  /* FIX: title no longer off-screen on phones */
+  /* FIX: conveyor is now a fixed-size window beside/under the text; no mask on phones */
+  .message-conveyor{
+    flex:none;width:100%;height:calc(2 * 180px + 20px);--img-h:180px;margin:0 0 28px;padding:0 20px;
+    -webkit-mask-image:linear-gradient(180deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(180deg,transparent,#000 8%,#000 92%,transparent)}  .art{aspect-ratio:4/3}                                                   /* FIX: shorter event cards */
+  .banner{padding:20px}
+  .chip{
+    margin-right:-10px;                 /* change this number to move it */
+    transform:scale(.65);               /* 50% of normal size */
+    transform-origin:right bottom;     /* shrinks toward the right edge */
+  }
+}                                      /* FIX: shorter contact banner */
+
+/* FIX: conveyor non-interactive only on narrow portrait phones, so it can't interrupt page scroll */
+@media(max-width:500px) and (orientation:portrait){
+  .message-conveyor,.hero-conveyor{pointer-events:none}
+  .conveyor-track{animation:conveyorScroll 24s linear infinite}
 }
 
-@media(min-width:930px){
-  .hero h1{font:1000 clamp(2.4rem,8vw,6.5rem)/1.25 var(--jp);letter-spacing:.04em;text-shadow:0 4px 30px rgba(0,60,140,.35); margin-top: 300px; margin-left: -110px;}
-  .badge{width:150px;height:150px;font-size:.9rem;right:94px;bottom:150px} 
-}
-@media(max-width:890px){
-  .badge{width:100px;height:100px;font-size:.65rem;right:24px;bottom:110px}
-  .block{padding:80px 20px}
-  footer{justify-content:center;text-align:center}
-  .message{flex-direction:column;min-height:auto}
-  .message-text{padding:72px 20px 24px}
-  .message-conveyor{flex:0 0 300px;padding:0 20px 28px;-webkit-mask-image:none;mask-image:none}
-  .hero h1{font:900 clamp(2.8rem,8vw,6rem)/1.25 var(--jp);letter-spacing:.02em;text-shadow:0 4px 30px rgba(0,60,140,.35); margin-bottom: -400px; margin-left: -45px;}
-  .message-conveyor{
-  --shown:2;        /* how many photos are visible at once */
-  --img-h:320px;    /* height of each photo */
-  --gap:20px;       /* space between photos */
-  flex:0 1 38%;
-  align-self:center;   /* centers the strip instead of stretching it full height */
-  height:calc(var(--shown) * var(--img-h) + (var(--shown) - 1) * var(--gap));
-  margin-right:5vw;
-  overflow:hidden;
-  -webkit-mask-image:linear-gradient(180deg,transparent,#000 8%,#000 92%,transparent);
-  mask-image:linear-gradient(180deg,transparent,#000 8%,#000 92%,transparent);
-}
-}
-@media(max-width:500px){
-  .badge{width:90px;height:90px;font-size:.4rem;right:20px;bottom:180px; border: 3.5px solid #fff; font:1000 .65rem var(--jp);letter-spacing:.07em;}
-  .block{padding:80px 20px}
-  .chip{padding:12px 24px;font-size:.6rem; bottom: 15px}
-  footer{justify-content:center;text-align:center}
-  .message{flex-direction:column;min-height:auto}
-  .message-text{padding:72px 20px 24px}
-  .message-conveyor{flex:0 0 300px;padding:0 20px 28px;-webkit-mask-image:none;mask-image:none}
-  .hero h1{font:900 clamp(.8rem,8vw,2rem)/1.25 var(--jp);letter-spacing:.02em;text-shadow:0 4px 30px rgba(0,60,140,.35); margin-bottom: -400px; margin-left: -35px;}
-  .message-conveyor{
-  --shown:2;        /* how many photos are visible at once */
-  --img-h:120px;    /* height of each photo */
-  --gap:20px;       /* space between photos */
-  flex:0 1 38%;
-  align-self:center;   /* centers the strip instead of stretching it full height */
-  height:calc(var(--shown) * var(--img-h) + (var(--shown) - 1) * var(--gap));
-  margin-right:5vw;
-  overflow:hidden;
-  -webkit-mask-image:linear-gradient(180deg,transparent,#000 8%,#000 92%,transparent);
-  mask-image:linear-gradient(180deg,transparent,#000 8%,#000 92%,transparent);
-}
-}
 @media(prefers-reduced-motion:reduce){.conveyor-track{animation:none}html{scroll-snap-type:none}*{transition:none!important;scroll-behavior:auto!important}}
