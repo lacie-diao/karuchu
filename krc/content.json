@@ -67,7 +67,7 @@
         "title": "Club Fair 2026",
         "jp": "花見",
         "photo": "https://cdn.laciediao-pdp.io.vn/808374285_930043676846581_3301574059598447450_n.webp",
-        "text": "desc",
+        "text": "",
         "c1": "#ff9db8",
         "c2": "#ffe3ea"
       },
@@ -75,7 +75,7 @@
         "title": "3rd Anniversary (2026)",
         "jp": "夏祭り",
         "photo": "https://cdn.laciediao-pdp.io.vn/_MG_3143.webp",
-        "text": "desc",
+        "text": "",
         "c1": "#ff8a3d",
         "c2": "#ffd166"
       },
@@ -83,14 +83,14 @@
         "title": "Bonding định kỳ",
         "jp": "月見",
         "photo": "https://cdn.laciediao-pdp.io.vn/663223660_901334222937777_3407555354112630042_n.webp",
-        "text": "desc",
+        "text": "",
         "c1": "#2b3a9f",
         "c2": "#8a9bff"
       },
       {
         "title": "Đêm hội Nhật ngữ (2025)",
         "jp": "文化祭",
-        "text": "desc",
+        "text": "",
         "photo": "https://cdn.laciediao-pdp.io.vn/karuchu.jpg",
         "c1": "#0a8fd6",
         "c2": "#c46bd8"
@@ -120,7 +120,7 @@
     "links": [
       {
         "label": "X",
-        "href": "#"
+        "href": "https://youtu.be/dQw4w9WgXcQ"
       },
       {
         "label": "IG",
@@ -132,7 +132,7 @@
       },
       {
         "label": "LINE",
-        "href": "#"
+        "href": "https://youtu.be/dQw4w9WgXcQ"
       }
     ]
   },
@@ -140,15 +140,15 @@
     "links": [
       {
         "label": "",
-        "href": "#"
+        "href": "https://youtu.be/dQw4w9WgXcQ"
       },
       {
         "label": "",
-        "href": "#"
+        "href": "https://youtu.be/dQw4w9WgXcQ"
       },
       {
         "label": "",
-        "href": "#"
+        "href": "https://youtu.be/dQw4w9WgXcQ"
       }
     ],
     "copy": "© 2026 KaruChu."
